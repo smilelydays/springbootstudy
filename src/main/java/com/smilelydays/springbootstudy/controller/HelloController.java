@@ -1,10 +1,12 @@
 package com.smilelydays.springbootstudy.controller;
 
 import com.smilelydays.springbootstudy.service.HelloService;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+@Component
 @RequestMapping("/hello")
 @RestController
 public class HelloController {
