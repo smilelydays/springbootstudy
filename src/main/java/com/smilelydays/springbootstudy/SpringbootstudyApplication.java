@@ -1,6 +1,7 @@
 package com.smilelydays.springbootstudy;
 
 import com.smilelydays.springbootstudy.controller.HelloController;
+import com.smilelydays.springbootstudy.service.SimpleHelloService;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,6 +20,7 @@ public class SpringbootstudyApplication {
     public static void main(String[] args) {
 		GenericWebApplicationContext applicationContext = new GenericWebApplicationContext();
 		applicationContext.registerBean(HelloController.class);
+		applicationContext.registerBean(SimpleHelloService.class);
 		applicationContext.refresh();
 
         ServletWebServerFactory serverFactory = new TomcatServletWebServerFactory();
