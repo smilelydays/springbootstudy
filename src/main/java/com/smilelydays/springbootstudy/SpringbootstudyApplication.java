@@ -1,17 +1,31 @@
 package com.smilelydays.springbootstudy;
 
 import com.smilelydays.springbootstudy.controller.HelloController;
+import com.smilelydays.springbootstudy.service.HelloService;
 import com.smilelydays.springbootstudy.service.SimpleHelloService;
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.server.WebServer;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
-import org.springframework.web.context.support.GenericWebApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+@Configuration
 public class SpringbootstudyApplication {
 
+	@Bean
+	public HelloController helloController(HelloService helloService) {
+		return new HelloController(helloService);
+	}
+
+	@Bean
+	public HelloService helloService() {
+		return new SimpleHelloService();
+	}
+
     public static void main(String[] args) {
-		GenericWebApplicationContext applicationContext = new GenericWebApplicationContext() {
+		AnnotationConfigWebApplicationContext applicationContext = new AnnotationConfigWebApplicationContext() {
 			@Override
 			protected void onRefresh() {
 				super.onRefresh();
@@ -26,8 +40,7 @@ public class SpringbootstudyApplication {
 				webServer.start();
 			}
 		};
-		applicationContext.registerBean(HelloController.class);
-		applicationContext.registerBean(SimpleHelloService.class);
+		applicationContext.register(SpringbootstudyApplication.class);
 		applicationContext.refresh();
     }
 }
