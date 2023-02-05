@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
+
 @RequestMapping("/hello")
 @RestController
 public class HelloController {
@@ -16,6 +18,10 @@ public class HelloController {
 
     @GetMapping
     public String hello(String name) {
-        return helloService.sayHello(name);
+        if (null == name || name.trim().length() == 0) {
+            throw new IllegalArgumentException();
+        }
+
+        return helloService.sayHello(Objects.requireNonNull(name));
     }
 }
