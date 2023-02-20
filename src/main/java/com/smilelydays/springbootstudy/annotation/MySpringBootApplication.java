@@ -1,6 +1,7 @@
 package com.smilelydays.springbootstudy.annotation;
 
-import com.smilelydays.config.Config;
+import com.smilelydays.config.DispatcherServletConfig;
+import com.smilelydays.config.TomcatWebServerConfig;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -14,6 +15,6 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Configuration
 @ComponentScan
-@Import(Config.class)
+@Import({DispatcherServletConfig.class, TomcatWebServerConfig.class})
 public @interface MySpringBootApplication {
 }
