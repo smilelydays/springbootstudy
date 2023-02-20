@@ -1,4 +1,4 @@
-package com.smilelydays.config;
+package com.smilelydays.config.autoconfig;
 
 import org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory;
 import org.springframework.boot.web.servlet.server.ServletWebServerFactory;

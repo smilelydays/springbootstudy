@@ -1,6 +1,6 @@
 package com.smilelydays.springbootstudy;
 
-import com.smilelydays.springbootstudy.annotation.MySpringBootApplication;
+import com.smilelydays.config.annotation.MySpringBootApplication;
 import org.springframework.boot.SpringApplication;
 
 @MySpringBootApplication

@@ -1,4 +1,4 @@
-package com.smilelydays.config;
+package com.smilelydays.config.autoconfig;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
