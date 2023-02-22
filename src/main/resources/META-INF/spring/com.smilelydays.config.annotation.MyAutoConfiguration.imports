@@ -1,2 +1,3 @@
 com.smilelydays.config.autoconfig.TomcatWebServerConfig
+com.smilelydays.config.autoconfig.JettyWebServerConfig
 com.smilelydays.config.autoconfig.DispatcherServletConfig
